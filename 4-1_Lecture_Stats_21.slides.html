@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>3-3_Lecture_Stats_21 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>4-1_Lecture_Stats_21 slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
@@ -14385,16 +14385,13 @@ div.jp-OutputPrompt {
 <div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Lecture-3-3">Lecture 3-3<a class="anchor-link" href="#Lecture-3-3">&#182;</a></h1><h1 id="Tuples">Tuples<a class="anchor-link" href="#Tuples">&#182;</a></h1><h2 id="Week-3-Friday">Week 3 Friday<a class="anchor-link" href="#Week-3-Friday">&#182;</a></h2><h2 id="Miles-Chen,-PhD">Miles Chen, PhD<a class="anchor-link" href="#Miles-Chen,-PhD">&#182;</a></h2><p>Adapted from Chapter 12 of Think Python by Allen B Downey</p>
-<p>Additional content on Dictionaries adapted from "Whirlwind Tour of Python" by Jake VanderPlas</p>
+<h1 id="Lecture-4-1">Lecture 4-1<a class="anchor-link" href="#Lecture-4-1">&#182;</a></h1><h1 id="NumPy">NumPy<a class="anchor-link" href="#NumPy">&#182;</a></h1><h2 id="Week-4-Monday">Week 4 Monday<a class="anchor-link" href="#Week-4-Monday">&#182;</a></h2><h2 id="Miles-Chen,-PhD">Miles Chen, PhD<a class="anchor-link" href="#Miles-Chen,-PhD">&#182;</a></h2><p>Based on Python Data Science Handbook by Jake VanderPlas</p>
 
 </div>
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Tuples">Tuples<a class="anchor-link" href="#Tuples">&#182;</a></h1><p>Tuples are like lists in that they can contain objects of different types. Tuples are ordered and preserve their order.</p>
-<p>Tuples are different from lists in that they are <strong>immutable</strong>. You cannot append to a tuple or modify values in a tuple.</p>
-<p>Tuples are created if you write values separated by commas. You can also use curved brackets (parenthesis) <code>()</code>.</p>
+<h2 id="ALWAYS-do:-import-numpy-as-np">ALWAYS do: <code>import numpy as np</code><a class="anchor-link" href="#ALWAYS-do:-import-numpy-as-np">&#182;</a></h2><p>This is a convention that everyone follows. If you do not do this, other people will have a hard time reading your code</p>
 
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14403,7 +14400,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>  <span class="c1"># parentheses are not required to create a tuple</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 
      </div>
@@ -14417,7 +14414,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 
      </div>
@@ -14439,7 +14436,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(0, &#39;apple&#39;, 2, &#39;cat&#39;, &#39;dog&#39;, 5, 6)</pre>
+<pre>&#39;1.19.2&#39;</pre>
 </div>
 
 </div>
@@ -14448,27 +14445,31 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Numpy-arrays">Numpy arrays<a class="anchor-link" href="#Numpy-arrays">&#182;</a></h2><ul>
+<li>like lists, arrays are mutable</li>
+<li>unlike lists, arrays can only contain data of the same data type</li>
+</ul>
+
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Making-Arrays">Making Arrays<a class="anchor-link" href="#Making-Arrays">&#182;</a></h2><ul>
+<li>direct creation with <code>np.array()</code></li>
+<li>Create a list with square brackets, and put that inside <code>np.array()</code></li>
+</ul>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c1"># you can use parentheses</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14484,13 +14485,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(0, &#39;apple&#39;, 2, &#39;cat&#39;, &#39;dog&#39;, 5, 6)</pre>
+<pre>array([1, 2, 3])</pre>
 </div>
 
 </div>
@@ -14499,18 +14500,14 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="You-can-create-a-tuple-with-one-value-by-having-a-trailing-comma">You can create a tuple with one value by having a trailing comma<a class="anchor-link" href="#You-can-create-a-tuple-with-one-value-by-having-a-trailing-comma">&#182;</a></h3>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c1"># printing an array appears different from the array([]) in ipython</span>
 </pre></div>
 
      </div>
@@ -14518,13 +14515,75 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1 2 3]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># a printed list has commas</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1, 2, 3]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A printed array has no commas. A printed list has commas.</p>
+
+</div>
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14546,7 +14605,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(&#39;a&#39;,)</pre>
+<pre>numpy.ndarray</pre>
 </div>
 
 </div>
@@ -14555,13 +14614,20 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Upcasting">Upcasting<a class="anchor-link" href="#Upcasting">&#182;</a></h3><p>If you mix data types in an array, the values of the more restrictive types will get upcast to the value of the less restrictive type.</p>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># the 3.0 is a float and will upcast (coerce) other values to floats</span>
 </pre></div>
 
      </div>
@@ -14577,15 +14643,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>tuple</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[1. 2. 3. 0. 1.]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -14598,7 +14662,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span> <span class="c1"># upcast (coerced) to strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14614,15 +14679,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[&#39;1&#39; &#39;2&#39; &#39;3&#39; &#39;True&#39; &#39;False&#39;]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -14632,29 +14695,17 @@ div.jp-OutputPrompt {
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="using-parentheses-without-a-comma-will-not-work">using parentheses without a comma will not work<a class="anchor-link" href="#using-parentheses-without-a-comma-will-not-work">&#182;</a></h4>
+<h3 id="Arrays-in-Higher-dimensions">Arrays in Higher dimensions<a class="anchor-link" href="#Arrays-in-Higher-dimensions">&#182;</a></h3><p>If you provide a list of lists, you can create a multi-dimensional array. (Like a matrix)</p>
+
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">]</span> <span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14670,33 +14721,116 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>str</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[1 2 3]
+ [4 5 6]]
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>When you print a multidimensional array, the number of opening square brackets is the number of dimensions. The above array is 2 dimensional.</p>
+<p>but if the dimensions don't match, you'll get an array of lists... which is not as useful.</p>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[list([1, 2, 3]) list([4, 5])]
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>C:\Users\miles\anaconda3\lib\site-packages\ipykernel_launcher.py:1: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray
+  &#34;&#34;&#34;Entry point for launching an IPython kernel.
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Other-ways-to-make-arrays">Other ways to make arrays<a class="anchor-link" href="#Other-ways-to-make-arrays">&#182;</a></h2>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># makes an array of 0s. similar to rep(0, 5)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([0., 0., 0., 0., 0.])</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14705,7 +14839,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">int</span><span class="p">)</span>  <span class="c1"># default is to make floats, you can specify ints</span>
 </pre></div>
 
      </div>
@@ -14727,7 +14861,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>tuple</pre>
+<pre>array([0, 0, 0, 0, 0])</pre>
 </div>
 
 </div>
@@ -14736,23 +14870,42 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="You-can-create-an-empty-tuple-with-the-tuple()-function,-similar-to-using-the-list()-or-dict()-function">You can create an empty tuple with the <code>tuple()</code> function, similar to using the <code>list()</code> or <code>dict()</code> function<a class="anchor-link" href="#You-can-create-an-empty-tuple-with-the-tuple()-function,-similar-to-using-the-list()-or-dict()-function">&#182;</a></h3>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t3</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># give dimensions as a tuple: makes an array 2x4</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.]])</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14761,7 +14914,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t3</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span> <span class="c1"># 3 dimensional array 2 x 3 x 4... </span>
+<span class="c1"># notice the order of creation: 2 &#39;sheets&#39; of 3 rows by 4 columns</span>
 </pre></div>
 
      </div>
@@ -14783,7 +14937,13 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>()</pre>
+<pre>array([[[0., 0., 0., 0.],
+        [0., 0., 0., 0.],
+        [0., 0., 0., 0.]],
+
+       [[0., 0., 0., 0.],
+        [0., 0., 0., 0.],
+        [0., 0., 0., 0.]]])</pre>
 </div>
 
 </div>
@@ -14792,18 +14952,14 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="You-can-use-the-tuple()-function-to-turn-other-iterables-into-tuples.">You can use the <code>tuple()</code> function to turn other iterables into tuples.<a class="anchor-link" href="#You-can-use-the-tuple()-function-to-turn-other-iterables-into-tuples.">&#182;</a></h3>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">tuple</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1"># make 2 &#39;blocks&#39;, each with 3 &#39;sheets&#39;, of 4 rows, and 5 columns</span>
 </pre></div>
 
      </div>
@@ -14825,7 +14981,36 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;)</pre>
+<pre>array([[[[0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.]],
+
+        [[0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.]],
+
+        [[0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.]]],
+
+
+       [[[0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.]],
+
+        [[0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.]],
+
+        [[0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.],
+         [0., 0., 0., 0., 0.]]]])</pre>
 </div>
 
 </div>
@@ -14834,13 +15019,19 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In addition to <code>np.zeros</code> there is <code>np.ones</code> and <code>np.full</code> which can create new arrays.</p>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># similar, but inserts ones</span>
 </pre></div>
 
      </div>
@@ -14862,7 +15053,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(0, 1, 2, 3, 4)</pre>
+<pre>array([1., 1., 1., 1., 1.])</pre>
 </div>
 
 </div>
@@ -14877,7 +15068,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">tuple</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="mf">1.2</span><span class="p">)</span>  <span class="c1"># similar, but you specify one value that gets repeated</span>
 </pre></div>
 
      </div>
@@ -14899,7 +15090,8 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(1, 4, 7)</pre>
+<pre>array([[1.2, 1.2, 1.2],
+       [1.2, 1.2, 1.2]])</pre>
 </div>
 
 </div>
@@ -14911,7 +15103,11 @@ div.jp-OutputPrompt {
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="The-usual-indexing-rules-apply-to-tuples">The usual indexing rules apply to tuples<a class="anchor-link" href="#The-usual-indexing-rules-apply-to-tuples">&#182;</a></h3>
+<h2 id="Making-arrays-of-random-numbers">Making arrays of random numbers<a class="anchor-link" href="#Making-arrays-of-random-numbers">&#182;</a></h2><p>numpy uses the Mersenne Twister</p>
+<ul>
+<li>All random generator functions begin with <code>np.random.</code></li>
+</ul>
+
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -14919,7 +15115,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># seed the generator for reproducibility</span>
 </pre></div>
 
      </div>
@@ -14933,7 +15129,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># random.random for random values on the interval [0,1)</span>
 </pre></div>
 
      </div>
@@ -14955,7 +15151,8 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;apple&#39;</pre>
+<pre>array([4.17022005e-01, 7.20324493e-01, 1.14374817e-04, 3.02332573e-01,
+       1.46755891e-01])</pre>
 </div>
 
 </div>
@@ -14970,7 +15167,9 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="c1"># slicing</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># random.randn for random normal from standard normal</span>
+<span class="c1"># this command will produce 5 values</span>
 </pre></div>
 
      </div>
@@ -14992,44 +15191,24 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(2, &#39;cat&#39;, &#39;dog&#39;)</pre>
+<pre>array([-1.10593508, -1.65451545, -2.3634686 ,  1.13534535, -1.01701414])</pre>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Tuples-are-immutable.-They-cannot-be-modified.">Tuples are immutable. They cannot be modified.<a class="anchor-link" href="#Tuples-are-immutable.-They-cannot-be-modified.">&#182;</a></h3><p>List are mutable and can be modified</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="c1"># tuple</span>
-<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="c1"># list</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># we can change the value of the object at index 0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="c1"># random.randn for random normal from normal with mean 10 and sd 3</span>
+<span class="c1"># arranged in a 2 x 4 matrix</span>
 </pre></div>
 
      </div>
@@ -15045,26 +15224,69 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[100, &#39;apple&#39;, 2, &#39;cat&#39;, &#39;dog&#39;, 5, 6]
-</pre>
-</div>
-</div>
 
-</div>
 
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[11.91208544,  7.42028018, 15.31782289,  6.66891084],
+       [10.5436428 , 11.6930346 ,  8.30046931, 12.18992679]])</pre>
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> 
+<span class="c1"># select random integers from 0 inclusive to 10 exclusive</span>
+<span class="c1"># and return 20 values</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([1, 8, 8, 3, 9, 8, 7, 3, 6, 5, 1, 9, 3, 4, 8, 1, 4, 0, 3, 9])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># trying to modify the value in a tuple is not allowed</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># simulate dice rolls</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15080,28 +15302,38 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-23-1315e91aabf3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>t<span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-cyan-intense-fg ansi-bold">0</span><span class="ansi-yellow-intense-fg ansi-bold">]</span> <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">100</span>  <span class="ansi-red-intense-fg ansi-bold"># trying to modify the value in a tuple is not allowed</span>
 
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: &#39;tuple&#39; object does not support item assignment</pre>
-</div>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([3, 1, 5, 2, 3, 3, 2, 1, 2, 4, 6, 5, 4, 6, 2, 4, 1, 1, 3, 3, 2, 4,
+       5, 3, 1, 1, 2, 2, 6, 4, 1, 1, 6, 6, 5, 6, 3, 5, 4, 6, 4, 6, 1, 4,
+       5, 4, 5, 5, 6, 5])</pre>
 </div>
 
 </div>
 
 </div>
 
+</div>
+
+</div></div><div class="fragment">
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>More random generation at: <a href="https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.random.html">https://docs.scipy.org/doc/numpy-1.15.1/reference/routines.random.html</a></p>
+
+</div>
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="methods-that-modify-lists-in-place-(e.g.-append,-insert,-pop,-etc)-do-not-work-for-tuples">methods that modify lists in place (e.g. append, insert, pop, etc) do not work for tuples<a class="anchor-link" href="#methods-that-modify-lists-in-place-(e.g.-append,-insert,-pop,-etc)-do-not-work-for-tuples">&#182;</a></h3>
+<h2 id="Array-sequences">Array sequences<a class="anchor-link" href="#Array-sequences">&#182;</a></h2><p>make sequences with</p>
+<ul>
+<li><code>np.arange(start, stop, step)</code>  </li>
+<li>makes an <strong>a</strong>rray <strong>range</strong> from start (inclusive) to stop (exclusive), by step</li>
+</ul>
+
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -15109,8 +15341,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># range object in regular python</span>
 </pre></div>
 
      </div>
@@ -15126,26 +15357,28 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[100, &#39;apple&#39;, 2, &#39;cat&#39;, &#39;dog&#39;, 5, 6, &#39;x&#39;]
-</pre>
-</div>
-</div>
 
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>range(0, 10, 2)</pre>
 </div>
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15161,37 +15394,28 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-25-2bc04b290b67&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>t<span class="ansi-yellow-intense-fg ansi-bold">.</span>append<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#39;x&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
 
-<span class="ansi-red-intense-fg ansi-bold">AttributeError</span>: &#39;tuple&#39; object has no attribute &#39;append&#39;</pre>
-</div>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[0, 2, 4, 6, 8]</pre>
 </div>
 
 </div>
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Because-tuples-are-immutable,-you-can't-modify-the-elements.-But-you-can-replace-one-tuple-with-another:">Because tuples are immutable, you can't modify the elements. But you can replace one tuple with another:<a class="anchor-link" href="#Because-tuples-are-immutable,-you-can't-modify-the-elements.-But-you-can-replace-one-tuple-with-another:">&#182;</a></h3>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,)</span> <span class="o">+</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<span class="n">t</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># numpy&#39;s arange function</span>
 </pre></div>
 
      </div>
@@ -15213,7 +15437,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(&#39;A&#39;, &#39;apple&#39;, 2, &#39;cat&#39;, &#39;dog&#39;, 5, 6)</pre>
+<pre>array([0, 2, 4, 6, 8])</pre>
 </div>
 
 </div>
@@ -15222,24 +15446,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="This-creates-an-entirely-new-tuple,-unrelated-to-the-other-one.">This creates an entirely new tuple, unrelated to the other one.<a class="anchor-link" href="#This-creates-an-entirely-new-tuple,-unrelated-to-the-other-one.">&#182;</a></h4>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The relational operators work with tuples and other sequences; Python starts by comparing the ﬁrst element from each sequence. If they are equal, it goes on to the next elements, and so on, until it ﬁnds elements that differ. Subsequent elements are not considered (even if they are really big).</p>
-
-</div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="c1"># equivalent &#39;manual&#39; creation</span>
 </pre></div>
 
      </div>
@@ -15261,7 +15474,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>True</pre>
+<pre>array([0, 2, 4, 6, 8])</pre>
 </div>
 
 </div>
@@ -15276,7 +15489,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2000000</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15298,7 +15511,8 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>True</pre>
+<pre>array([ 0,  5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80,
+       85, 90, 95])</pre>
 </div>
 
 </div>
@@ -15313,7 +15527,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="c1"># quickest</span>
 </pre></div>
 
      </div>
@@ -15335,47 +15549,8 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>False</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[110]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># abbbb</span>
-<span class="c1"># abc</span>
-<span class="c1"># abcd</span>
-<span class="nb">tuple</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">tuple</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[110]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>True</pre>
+<pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19])</pre>
 </div>
 
 </div>
@@ -15387,7 +15562,10 @@ div.jp-OutputPrompt {
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Tuple-assignment">Tuple assignment<a class="anchor-link" href="#Tuple-assignment">&#182;</a></h3><p>A common and useful tuple idiom: You can switch value assignments via tuples</p>
+<ul>
+<li><code>np.linspace(start, stop, num)</code></li>
+<li>makes an array of <strong>lin</strong>ear <strong>space</strong>d values beginning with start, ending with stop (inclusive), with a length of num</li>
+</ul>
 
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15396,14 +15574,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># old option without tuples</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">temp</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">temp</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15419,13 +15590,15 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1 5
-</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([  0.,  10.,  20.,  30.,  40.,  50.,  60.,  70.,  80.,  90., 100.])</pre>
 </div>
+
 </div>
 
 </div>
@@ -15438,12 +15611,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># faster way with tuples</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15459,70 +15627,52 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1 5
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>You can take the results of a function and have the returned values assign to different elements in a tuple</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">addr</span> <span class="o">=</span> <span class="s2">&quot;mileschen@stat.ucla.edu&quot;</span>
-<span class="n">uname</span><span class="p">,</span> <span class="n">domain</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[111]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">addr</span> <span class="o">=</span> <span class="s2">&quot;mileschen@stat.ucla.edu&quot;</span>
-<span class="n">addr</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[111]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;mileschen&#39;, &#39;stat.ucla.edu&#39;]</pre>
+<pre>array([  0.        ,  11.11111111,  22.22222222,  33.33333333,
+        44.44444444,  55.55555556,  66.66666667,  77.77777778,
+        88.88888889, 100.        ])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>  <span class="c1"># optional parameter endpoint to exclude the stop value</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([ 0., 10., 20., 30., 40., 50., 60., 70., 80., 90.])</pre>
 </div>
 
 </div>
@@ -15537,7 +15687,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">uname</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> 
+<span class="c1"># if you use the endpoint argument, the last number in the array will depend on the output length</span>
 </pre></div>
 
      </div>
@@ -15559,7 +15710,8 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;mileschen&#39;</pre>
+<pre>array([ 0.        , 11.11111111, 22.22222222, 33.33333333, 44.44444444,
+       55.55555556, 66.66666667, 77.77777778, 88.88888889])</pre>
 </div>
 
 </div>
@@ -15568,27 +15720,24 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Array-Attributes">Array Attributes<a class="anchor-link" href="#Array-Attributes">&#182;</a></h1><ul>
+<li><code>array.ndim</code> for number of dimensions</li>
+<li><code>array.shape</code> for the size of each dimension</li>
+<li><code>array.dtype</code> for the data type </li>
+</ul>
 
-     </div>
 </div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">domain</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15604,37 +15753,28 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;stat.ucla.edu&#39;</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We saw this when we talked about functions. You can have functions return multiple values in the form of a tuple</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">my_divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="n">integer</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="n">y</span>
-    <span class="n">remainder</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span>
-    <span class="k">return</span> <span class="n">integer</span><span class="p">,</span> <span class="n">remainder</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">ndim</span>
 </pre></div>
 
      </div>
@@ -15642,18 +15782,64 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">my_divide</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(3, 4)</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15662,7 +15848,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span>
 </pre></div>
 
      </div>
@@ -15684,7 +15870,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(4, 3)</pre>
+<pre>dtype(&#39;float64&#39;)</pre>
 </div>
 
 </div>
@@ -15693,13 +15879,14 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">divmod</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># divmod() is a built-in function that does exactly this.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15715,39 +15902,54 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(4, 3)</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[ 0  1  2  3  4  5  6  7  8  9 10 11]
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Tuple-Methods">Tuple Methods<a class="anchor-link" href="#Tuple-Methods">&#182;</a></h3><p>tuples only support two methods: <code>tuple.index()</code> and <code>tuple.count()</code> which return information about contents of the tuple but do not modify them</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">ndim</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>1</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15756,7 +15958,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;dog&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># a one dimensional array. Note that there&#39;s no second dimension.</span>
 </pre></div>
 
      </div>
@@ -15778,7 +15980,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>4</pre>
+<pre>(12,)</pre>
 </div>
 
 </div>
@@ -15787,13 +15989,26 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Reshaping-Arrays">Reshaping Arrays<a class="anchor-link" href="#Reshaping-Arrays">&#182;</a></h2><ul>
+<li><code>np.reshape(array, [new shape])</code> returns a new array that is reshaped<ul>
+<li>you can also use the method <code>array.reshape(shape)</code></li>
+</ul>
+</li>
+<li><code>array.T</code> is the transpose method, but leaves the original array unaffected</li>
+</ul>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="c1"># j is one dimensional</span>
 </pre></div>
 
      </div>
@@ -15809,43 +16024,27 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[ 0  1  2  3  4  5  6  7  8  9 10 11]
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Functions-that-support-tuples-and-other-iterables-as-inputs">Functions that support tuples and other iterables as inputs<a class="anchor-link" href="#Functions-that-support-tuples-and-other-iterables-as-inputs">&#182;</a></h2><p>Even though tuples only have two methods, there are several functions that support tuples (and other iterables like lists, dicts, strings) as inputs</p>
-<ul>
-<li><code>len()</code></li>
-<li><code>sum()</code></li>
-<li><code>sorted()</code></li>
-<li><code>min()</code></li>
-<li><code>max()</code></li>
-</ul>
-<p>None of these functions affect the list or tuple itself.</p>
-
-</div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">some_digits</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># a tuple of numbers</span>
-<span class="n">some_words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span><span class="s1">&#39;hat&#39;</span><span class="p">,</span><span class="s1">&#39;hand&#39;</span><span class="p">]</span>  <span class="c1"># this is a list</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># note that it fills row-wise unlike R</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15853,13 +16052,36 @@ div.jp-OutputPrompt {
 </div>
 </div>
 
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">some_digits</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">j</span> <span class="c1"># j is left unchanged</span>
 </pre></div>
 
      </div>
@@ -15881,7 +16103,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>7</pre>
+<pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</pre>
 </div>
 
 </div>
@@ -15890,13 +16112,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">some_digits</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">j</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># you can also call the method reshape() on the array j</span>
 </pre></div>
 
      </div>
@@ -15918,7 +16140,10 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>32</pre>
+<pre>array([[ 0,  1,  2],
+       [ 3,  4,  5],
+       [ 6,  7,  8],
+       [ 9, 10, 11]])</pre>
 </div>
 
 </div>
@@ -15927,13 +16152,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">some_words</span><span class="p">)</span> <span class="c1"># won&#39;t work on strings</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">j</span> <span class="c1"># j is left unchanged here as well</span>
 </pre></div>
 
      </div>
@@ -15949,18 +16174,15 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-45-7ad2d781cfbf&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>sum<span class="ansi-yellow-intense-fg ansi-bold">(</span>some_words<span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-red-intense-fg ansi-bold"># won&#39;t work on strings</span>
 
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;</pre>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</pre>
 </div>
+
 </div>
 
 </div>
@@ -15973,46 +16195,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">some_digits</span><span class="p">)</span>  <span class="c1"># sorts the tuple, but does not affect the list or tuple itself.</span>
-<span class="c1"># contrast to list.sort() which will sort the list in place</span>
-<span class="c1"># but the object returned is a list</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[2, 2, 3, 4, 5, 7, 9]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">some_digits</span><span class="p">)</span>  <span class="c1"># just to show the list is unchanged</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16032,7 +16215,47 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(4, 2, 7, 9, 2, 5, 3)
+<pre>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># the transpose of k</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  4  8]
+ [ 1  5  9]
+ [ 2  6 10]
+ [ 3  7 11]]
 </pre>
 </div>
 </div>
@@ -16047,7 +16270,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">some_words</span><span class="p">)</span> <span class="c1"># when applied to a list of strings, it will alphabetize them</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="c1"># calling k.T does not modify the original k array</span>
 </pre></div>
 
      </div>
@@ -16063,28 +16286,31 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;apple&#39;, &#39;cat&#39;, &#39;dog&#39;, &#39;hand&#39;, &#39;hat&#39;]</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">some_digits</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># can combine the above methods and steps into one:</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+<span class="c1"># create a-range &gt;&gt; reshape &gt;&gt; transpose</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16100,13 +16326,87 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  4  8]
+ [ 1  5  9]
+ [ 2  6 10]
+ [ 3  7 11]]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[ 0  1  2  3  4  5  6  7  8  9 10 11]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>2</pre>
+<pre>(12,)</pre>
 </div>
 
 </div>
@@ -16118,63 +16418,10 @@ div.jp-OutputPrompt {
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">some_words</span><span class="p">)</span>  <span class="c1"># max returns the last word if alphabetized,</span>
-<span class="c1"># min will return the first in an alphabetized list</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[50]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;hat&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dict_num</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;c&quot;</span><span class="p">}</span>
-<span class="n">dict_alpha</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">dict_num</span><span class="p">)</span> <span class="c1"># number of items in the dictionary</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># the transpose of a one dimensional array doesn&#39;t suddenly give it a second dimension</span>
 </pre></div>
 
      </div>
@@ -16190,15 +16437,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[52]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>3</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[ 0  1  2  3  4  5  6  7  8  9 10 11]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -16211,7 +16456,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[53]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">dict_num</span><span class="p">)</span> <span class="c1"># a list of the keys sorted</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
      </div>
@@ -16233,7 +16478,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[1, 2, 3]</pre>
+<pre>(12,)</pre>
 </div>
 
 </div>
@@ -16242,13 +16487,14 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sorted</span><span class="p">(</span><span class="n">dict_alpha</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span> <span class="c1"># the array now has two dimensions</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16264,28 +16510,26 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3  4  5  6  7  8  9 10 11]]
+</pre>
+</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="n">dict_num</span><span class="p">)</span> <span class="c1"># the &quot;maximum&quot; key</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
      </div>
@@ -16307,7 +16551,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>3</pre>
+<pre>(1, 12)</pre>
 </div>
 
 </div>
@@ -16316,27 +16560,50 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Math-operators-and-lists,-tuples,-strings">Math operators and lists, tuples, strings<a class="anchor-link" href="#Math-operators-and-lists,-tuples,-strings">&#182;</a></h1><p>multiplication generally duplicates</p>
-<p>addition generally appends</p>
-<p>behaviors across lists, tuples, and strings are similar</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">]</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># with two dimensions, the transpose become a column</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0]
+ [ 1]
+ [ 2]
+ [ 3]
+ [ 4]
+ [ 5]
+ [ 6]
+ [ 7]
+ [ 8]
+ [ 9]
+ [10]
+ [11]]
+</pre>
+</div>
+</div>
+
+</div>
+
 </div>
 
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -16345,7 +16612,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">*</span> <span class="mi">2</span> <span class="c1"># multiplication extends duplicates </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
      </div>
@@ -16367,7 +16634,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</pre>
+<pre>(12, 1)</pre>
 </div>
 
 </div>
@@ -16376,13 +16643,21 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Subsetting-and-Slicing-Arrays">Subsetting and Slicing Arrays<a class="anchor-link" href="#Subsetting-and-Slicing-Arrays">&#182;</a></h1><ul>
+<li>very similar to subsetting and slicing lists</li>
+</ul>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">+</span> <span class="n">L2</span> <span class="c1"># addition appends list objects</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16398,13 +16673,13 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</pre>
+<pre>4</pre>
 </div>
 
 </div>
@@ -16413,28 +16688,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T1</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="n">T2</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T1</span> <span class="o">*</span> <span class="mi">2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
      </div>
@@ -16456,7 +16716,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;)</pre>
+<pre>(12,)</pre>
 </div>
 
 </div>
@@ -16465,13 +16725,13 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">T1</span> <span class="o">+</span> <span class="n">T2</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16493,7 +16753,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;)</pre>
+<pre>array([4, 5])</pre>
 </div>
 
 </div>
@@ -16502,13 +16762,19 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>you can slice with a second colon. The array gets subset with <code>array[start:stop:step]</code></p>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[62]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">+</span> <span class="n">T2</span> <span class="c1"># fails. you cannot add list and tuple</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16524,31 +16790,28 @@ div.jp-OutputPrompt {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[62]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-62-75bf80180df8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>L1 <span class="ansi-yellow-intense-fg ansi-bold">+</span> T2 <span class="ansi-red-intense-fg ansi-bold"># fails. you cannot add list and tuple</span>
 
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: can only concatenate list (not &#34;tuple&#34;) to list</pre>
-</div>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([1, 4, 7])</pre>
 </div>
 
 </div>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span> <span class="c1"># but you can easily convert a tuple to a list first</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)[:</span><span class="mi">100</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># to get even values</span>
 </pre></div>
 
      </div>
@@ -16570,187 +16833,11 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</pre>
+<pre>array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32,
+       34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66,
+       68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98])</pre>
 </div>
 
-</div>
-
-</div>
-
-</div>
-
-</div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Variable-length-argument-tuples">Variable-length argument tuples<a class="anchor-link" href="#Variable-length-argument-tuples">&#182;</a></h3><p>Functions can take a variable number of arguments. A parameter name that begins with <code>*</code> gathers arguments into a tuple.</p>
-<p>The gather parameter can have any name you like, but args is conventional.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[112]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">printall</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[113]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">printall</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-113-cafd45fce4b5&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>printall<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-cyan-intense-fg ansi-bold">1</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">3.0</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">5</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;hi&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: printall() takes 1 positional argument but 4 were given</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[114]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">printall</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[115]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">printall</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(1, 3.0, 5, &#39;hi&#39;)
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_lines</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_lines</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;goodbye&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>hi
-goodbye
-</pre>
-</div>
 </div>
 
 </div>
@@ -16760,10 +16847,10 @@ goodbye
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[68]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_lines</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16779,17 +16866,17 @@ goodbye
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[64]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>1
-5
-7
-9
-10
-</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32,
+       34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66,
+       68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98])</pre>
 </div>
+
 </div>
 
 </div>
@@ -16799,48 +16886,17 @@ goodbye
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The complement of gather is scatter. If you have a sequence of values and you want to pass it to a function as multiple arguments, you can use the <code>*</code> operator.</p>
-<p>For example, the <code>my_divide</code> function from earlier takes exactly two arguments; it doesn’t work with a tuple:</p>
+<p>Subsetting and slicing higher dimensional arrays is similar, and uses a comma to separate subsetting instructions for each dimension.</p>
 
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">my_divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="n">integer</span> <span class="o">=</span> <span class="n">x</span> <span class="o">//</span> <span class="n">y</span>
-    <span class="n">remainder</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span>
-    <span class="k">return</span> <span class="n">integer</span><span class="p">,</span> <span class="n">remainder</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">23</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell    celltag_raises-exception">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[71]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_divide</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16859,14 +16915,243 @@ goodbye
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-71-ea0afdae4ba1&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>my_divide<span class="ansi-yellow-intense-fg ansi-bold">(</span>t<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre>
+</div>
+</div>
 
-<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: my_divide() missing 1 required positional argument: &#39;y&#39;</pre>
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># returns what is at row index 1, col index 2</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>6
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[67]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># with only one value, the type is the integer. It is no longer an array.</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[67]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>numpy.int32</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[68]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># note the type remains a numpy array</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[68]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[0, 1],
+       [4, 5]])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[69]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span> <span class="c1"># returns row at index 2</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[ 8  9 10 11]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># the shape is one dimensional</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(4,)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[71]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># returns column at index 2</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[ 2  6 10]
+</pre>
 </div>
 </div>
 
@@ -16880,7 +17165,7 @@ goodbye
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[72]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_divide</span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># shape is one dimensional</span>
 </pre></div>
 
      </div>
@@ -16902,7 +17187,7 @@ goodbye
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>(4, 3)</pre>
+<pre>(3,)</pre>
 </div>
 
 </div>
@@ -16914,8 +17199,7 @@ goodbye
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Lists,-Tuples-and-Iterators">Lists, Tuples and Iterators<a class="anchor-link" href="#Lists,-Tuples-and-Iterators">&#182;</a></h2><p><code>zip()</code> is a built-in function that takes two or more sequences and interleaves them. The name of the function refers to a zipper, which interleaves two rows of teeth.</p>
-
+<h4 id="Slices-of-numpy-arrays-are-view-objects,-and-automatically-update-if-the-original-array-is-updated.">Slices of numpy arrays are view objects, and automatically update if the original array is updated.<a class="anchor-link" href="#Slices-of-numpy-arrays-are-view-objects,-and-automatically-update-if-the-original-array-is-updated.">&#182;</a></h4>
 </div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -16923,9 +17207,8 @@ goodbye
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[73]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>
-<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
-<span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16941,15 +17224,15 @@ goodbye
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[73]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;zip at 0x1bbe6b81388&gt;</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -16962,8 +17245,9 @@ goodbye
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[74]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we use numpy array slicing to create z_sub, the top left corner of z</span>
+<span class="n">z_sub</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z_sub</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16983,9 +17267,8 @@ goodbye
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>(&#39;a&#39;, 0)
-(&#39;b&#39;, 1)
-(&#39;c&#39;, 2)
+<pre>[[0 1]
+ [4 5]]
 </pre>
 </div>
 </div>
@@ -16994,28 +17277,14 @@ goodbye
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>A zip object is a kind of iterator, which is any object that iterates through a sequence.
-Iterators are similar to lists in some ways, but unlike lists, you can’t use an index to select
-an element from an iterator.</p>
-
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>If you want, you can put the zip object inside a list.</p>
-<p>It will return a list of tuples</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[75]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">t</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># I modify the first element of z to be 99.</span>
+<span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
 </pre></div>
 
      </div>
@@ -17023,87 +17292,13 @@ an element from an iterator.</p>
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[75]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[(&#39;a&#39;, 0), (&#39;b&#39;, 1), (&#39;c&#39;, 2)]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment">
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>If the sequences are not the same length, the result has the length of the shorter one.</p>
-
-</div>
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="s2">&quot;Anne&quot;</span> <span class="p">,</span> <span class="s2">&quot;Elk&quot;</span> <span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[76]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[(&#39;A&#39;, &#39;E&#39;), (&#39;n&#39;, &#39;l&#39;), (&#39;n&#39;, &#39;k&#39;)]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>If you have a list of tuples, you can iterate over them by unpacking the elements.</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[77]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
-<span class="k">for</span> <span class="n">letter</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">letter</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z_sub</span><span class="p">)</span>  <span class="c1"># z_sub is updated, even though we never redefined it</span>
 </pre></div>
 
      </div>
@@ -17123,9 +17318,8 @@ an element from an iterator.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0 a
-1 b
-2 c
+<pre>[[99  1]
+ [ 4  5]]
 </pre>
 </div>
 </div>
@@ -17134,23 +17328,13 @@ an element from an iterator.</p>
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>A useful snippet of code that will traverse two iterables and see if there both share a certain element in the same position.</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[78]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[77]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">has_match</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">return</span> <span class="kc">False</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span>
 </pre></div>
 
      </div>
@@ -17158,13 +17342,54 @@ an element from an iterator.</p>
 </div>
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[77]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[99,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11]])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[78]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span> <span class="c1"># here z gets redefined to an entirely new object</span>
+<span class="c1"># we are not modifying the object that used to be called z</span>
+<span class="c1"># we created a new object, and the name z now points to the new object</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[79]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">has_match</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span>
 </pre></div>
 
      </div>
@@ -17186,7 +17411,9 @@ an element from an iterator.</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>False</pre>
+<pre>array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14]])</pre>
 </div>
 
 </div>
@@ -17201,126 +17428,7 @@ an element from an iterator.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[80]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">has_match</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[80]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>True</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[81]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">has_match</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[81]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>False</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="enumerate()"><code>enumerate()</code><a class="anchor-link" href="#enumerate()">&#182;</a></h3><p>The built-in function enumerate is useful. It takes an iterable and returns an iterator of the index paired with the elements
-You can think of <code>enumerate()</code> as zipping a range object of the same length with the iterable.</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[82]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;morning&quot;</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[82]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;enumerate at 0x1bbe6b4c598&gt;</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[83]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;morning&quot;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z_sub</span><span class="p">)</span>  <span class="c1"># the view z_sub still points to the object formerly known as z, which was not modified </span>
 </pre></div>
 
      </div>
@@ -17340,13 +17448,8 @@ You can think of <code>enumerate()</code> as zipping a range object of the same 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0 m
-1 o
-2 r
-3 n
-4 i
-5 n
-6 g
+<pre>[[99  1]
+ [ 4  5]]
 </pre>
 </div>
 </div>
@@ -17355,13 +17458,18 @@ You can think of <code>enumerate()</code> as zipping a range object of the same 
 
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="If-you-want-a-copy-that-will-not-update-if-the-original-is-updated,-use-array.copy()">If you want a copy that will not update if the original is updated, use <code>array.copy()</code><a class="anchor-link" href="#If-you-want-a-copy-that-will-not-update-if-the-original-is-updated,-use-array.copy()">&#182;</a></h2>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[84]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[81]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17377,15 +17485,102 @@ You can think of <code>enumerate()</code> as zipping a range object of the same 
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[84]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[(0, &#39;a&#39;), (1, &#39;b&#39;), (2, &#39;c&#39;), (3, &#39;d&#39;)]</pre>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]]
+</pre>
+</div>
 </div>
 
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[82]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z_sub_copy</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z_sub_copy</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[0 1]
+ [5 6]]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[83]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">55</span> <span class="c1"># modify the first element of z</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[84]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z_sub_copy</span><span class="p">)</span> <span class="c1"># the copy remains unaffected by the change</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[0 1]
+ [5 6]]
+</pre>
+</div>
 </div>
 
 </div>
@@ -17398,102 +17593,7 @@ You can think of <code>enumerate()</code> as zipping a range object of the same 
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[85]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">),[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">]))</span>  <span class="c1"># zipping a range object with a list</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[85]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>[(0, &#39;a&#39;), (1, &#39;b&#39;), (2, &#39;c&#39;), (3, &#39;d&#39;)]</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Dictionaries-and-Tuples">Dictionaries and Tuples<a class="anchor-link" href="#Dictionaries-and-Tuples">&#182;</a></h3><p>the dictionary view object, dict.items() is a sequence of tuples.</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[86]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[87]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[87]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>dict_items([(&#39;a&#39;, 0), (&#39;b&#39;, 1), (&#39;c&#39;, 2)])</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[88]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17513,9 +17613,9 @@ You can think of <code>enumerate()</code> as zipping a range object of the same 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>a 0
-b 1
-c 2
+<pre>[[55  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]]
 </pre>
 </div>
 </div>
@@ -17524,13 +17624,20 @@ c 2
 
 </div>
 
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div></section></section><section><section>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Modifying the view object modifies the underlying array</p>
+
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[89]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[86]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="s2">&quot;efg&quot;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17538,13 +17645,102 @@ c 2
 </div>
 </div>
 
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[87]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">view</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:</span><span class="mi">2</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[88]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">view</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[89]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">view</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[89]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[99,  1],
+       [ 4,  5]])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[90]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span>
 </pre></div>
 
      </div>
@@ -17566,7 +17762,9 @@ c 2
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{0: &#39;e&#39;, 1: &#39;f&#39;, 2: &#39;g&#39;}</pre>
+<pre>array([[99,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11]])</pre>
 </div>
 
 </div>
@@ -17575,20 +17773,13 @@ c 2
 
 </div>
 
-</div></div><div class="fragment">
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Swap-the-keys-and-elements-in-a-dictionary">Swap the keys and elements in a dictionary<a class="anchor-link" href="#Swap-the-keys-and-elements-in-a-dictionary">&#182;</a></h3>
-</div>
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[91]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">swapped</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">swapped</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">view</span><span class="p">)</span> <span class="c1"># view objects themselves are arrays and have all the same methods and attributes</span>
 </pre></div>
 
      </div>
@@ -17596,13 +17787,36 @@ c 2
 </div>
 </div>
 
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[91]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>numpy.ndarray</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[92]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">swapped</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 
      </div>
@@ -17624,7 +17838,8 @@ c 2
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;e&#39;: 0, &#39;f&#39;: 1, &#39;g&#39;: 2}</pre>
+<pre>array([[99,  4],
+       [ 1,  5]])</pre>
 </div>
 
 </div>
@@ -17633,13 +17848,13 @@ c 2
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[93]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="s2">&quot;efg&quot;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,))</span>
 </pre></div>
 
      </div>
@@ -17661,7 +17876,7 @@ c 2
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;e&#39;: 0, &#39;f&#39;: 1, &#39;g&#39;: 2}</pre>
+<pre>array([99,  4,  1,  5])</pre>
 </div>
 
 </div>
@@ -17670,20 +17885,13 @@ c 2
 
 </div>
 
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We can create dictionaries out of sequences of tuples and with zip objects</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[94]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">)]</span>
-<span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">view</span> <span class="c1"># attributes like .T do not affect the orignal array</span>
 </pre></div>
 
      </div>
@@ -17705,274 +17913,8 @@ c 2
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;z&#39;: 25, &#39;y&#39;: 24, &#39;x&#39;: 23}</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[95]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span>
-<span class="nb">dict</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[95]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;x&#39;: 23, &#39;y&#39;: 24, &#39;z&#39;: 25}</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Tuples-as-dictionary-keys">Tuples as dictionary keys<a class="anchor-link" href="#Tuples-as-dictionary-keys">&#182;</a></h3><p>Because tuples are immutable, they can be used as keys in a dictionary</p>
-<p>For example, there might be a 2D function that is very expensive to compute for coordinates. You can create a dictionary that will store all of the values that have been calculated for each 2D pair.</p>
-<p>Let's say you have a function: $f(x,y) = x^2 + 2y$</p>
-
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[96]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this dictionary contains values that are known solutions</span>
-<span class="n">known</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">0</span><span class="p">}</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[97]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">known</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;value already exists dictionary&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">known</span><span class="p">[</span><span class="n">t</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;value must be calculated&quot;</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span>
-    <span class="n">known</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
-    <span class="k">return</span> <span class="n">res</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[98]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>value already exists dictionary
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[98]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[99]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>value must be calculated
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[99]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>5</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[100]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>value already exists dictionary
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[100]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>5</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[101]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">known</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[101]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{(0, 0): 0, (1, 2): 5}</pre>
+<pre>array([[99,  1],
+       [ 4,  5]])</pre>
 </div>
 
 </div>
